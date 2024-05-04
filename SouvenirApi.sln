@@ -1,0 +1,62 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.4.33103.184
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{FD2EEAE9-C9EC-401C-A294-1F42A2445A2D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{27D8FD90-81FB-439B-B1DB-A298923451D3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8EAA5CA4-1512-47F3-9B2F-9E7FB28E80D2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Application", "Core\SouvenirApi.Application\SouvenirApi.Application.csproj", "{DAC07DC7-E746-4775-B679-7B19ED929A09}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Infrastructure", "Infrastructure\SouvenirApi.Infrastructure\SouvenirApi.Infrastructure.csproj", "{C817ADFC-4A0D-49C6-825B-09596C1EE8F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Domain", "Core\SouvenirApi.Domain\SouvenirApi.Domain.csproj", "{B170D8C2-F63B-4981-9C50-2E1FD175F6BD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Infrastructure\Persistence\Persistence.csproj", "{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Api", "Presentation\SouvenirApi.Api\SouvenirApi.Api.csproj", "{7D914833-B1F7-4235-967C-EB0754E22EC5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DAC07DC7-E746-4775-B679-7B19ED929A09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAC07DC7-E746-4775-B679-7B19ED929A09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAC07DC7-E746-4775-B679-7B19ED929A09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAC07DC7-E746-4775-B679-7B19ED929A09}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C817ADFC-4A0D-49C6-825B-09596C1EE8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C817ADFC-4A0D-49C6-825B-09596C1EE8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C817ADFC-4A0D-49C6-825B-09596C1EE8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C817ADFC-4A0D-49C6-825B-09596C1EE8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B170D8C2-F63B-4981-9C50-2E1FD175F6BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B170D8C2-F63B-4981-9C50-2E1FD175F6BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B170D8C2-F63B-4981-9C50-2E1FD175F6BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B170D8C2-F63B-4981-9C50-2E1FD175F6BD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D914833-B1F7-4235-967C-EB0754E22EC5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D914833-B1F7-4235-967C-EB0754E22EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D914833-B1F7-4235-967C-EB0754E22EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D914833-B1F7-4235-967C-EB0754E22EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{DAC07DC7-E746-4775-B679-7B19ED929A09} = {FD2EEAE9-C9EC-401C-A294-1F42A2445A2D}
+		{C817ADFC-4A0D-49C6-825B-09596C1EE8F7} = {27D8FD90-81FB-439B-B1DB-A298923451D3}
+		{B170D8C2-F63B-4981-9C50-2E1FD175F6BD} = {FD2EEAE9-C9EC-401C-A294-1F42A2445A2D}
+		{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187} = {27D8FD90-81FB-439B-B1DB-A298923451D3}
+		{7D914833-B1F7-4235-967C-EB0754E22EC5} = {8EAA5CA4-1512-47F3-9B2F-9E7FB28E80D2}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3A51FD9-9D6B-45E8-999A-C97FA2AF6B91}
+	EndGlobalSection
+EndGlobal
