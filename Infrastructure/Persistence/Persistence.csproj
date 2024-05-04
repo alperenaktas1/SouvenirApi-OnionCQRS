@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Core\SouvenirApi.Application\SouvenirApi.Application.csproj" />
     <ProjectReference Include="..\..\Core\SouvenirApi.Domain\SouvenirApi.Domain.csproj" />
   </ItemGroup>
 
