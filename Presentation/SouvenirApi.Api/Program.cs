@@ -1,4 +1,7 @@
 using Persistence;
+using SouvenirApi.Application;
+using SouvenirApi.Mapper;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -17,6 +20,10 @@ builder.Configuration
 
 //db configurationlarýný yazdýðýmýz yer
 builder.Services.AddPersistence(builder.Configuration);
+//application'ý burada çaðýrýyoruz.Çünkü productController'da MediatR ile çalýþabilmek için.
+builder.Services.AddAplication();
+//automap için service eklendi
+builder.Services.AddCustomMapper();
 
 
 var app = builder.Build();

@@ -17,10 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Infrastructure\Persistence\Persistence.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
+    <ProjectReference Include="..\..\SouvenirApi.Mapper\SouvenirApi.Mapper.csproj" />
   </ItemGroup>
 
 </Project>
