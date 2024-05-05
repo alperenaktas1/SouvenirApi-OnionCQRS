@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace SouvenirApi.Application.Features.Products.Command.UpdateProduct
 {
-    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest>
+    public class UpdateProductCommandHandler : IRequestHandler<UpdateProductCommandRequest,Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly IMappersApp _mappersApp;
@@ -20,7 +20,7 @@ namespace SouvenirApi.Application.Features.Products.Command.UpdateProduct
             _unitOfWork = unitOfWork;
             _mappersApp = mappersApp;
         }
-        public async Task Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
+        public async Task<Unit> Handle(UpdateProductCommandRequest request, CancellationToken cancellationToken)
         {
             var product = await _unitOfWork.GetReadRepository<Product>().GetAsync(x=>x.Id==request.Id && !x.IsDeleted);
             var map = _mappersApp.Map<Product, UpdateProductCommandRequest>(request);
@@ -36,6 +36,8 @@ namespace SouvenirApi.Application.Features.Products.Command.UpdateProduct
 
             await _unitOfWork.GetWriteRepository<Product>().UpdateAsync(map);
             await _unitOfWork.SaveAsync();
+
+            return Unit.Value;
         }
     }
 }

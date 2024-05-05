@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SouvenirApi.Application.Features.Products.Command.UpdateProduct
 {
-    public class UpdateProductCommandRequest : IRequest
+    public class UpdateProductCommandRequest : IRequest<Unit>
     {
         
         public int Id { get; set; }
