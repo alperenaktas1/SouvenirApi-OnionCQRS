@@ -9,15 +9,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastru
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{8EAA5CA4-1512-47F3-9B2F-9E7FB28E80D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Application", "Core\SouvenirApi.Application\SouvenirApi.Application.csproj", "{DAC07DC7-E746-4775-B679-7B19ED929A09}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SouvenirApi.Application", "Core\SouvenirApi.Application\SouvenirApi.Application.csproj", "{DAC07DC7-E746-4775-B679-7B19ED929A09}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Infrastructure", "Infrastructure\SouvenirApi.Infrastructure\SouvenirApi.Infrastructure.csproj", "{C817ADFC-4A0D-49C6-825B-09596C1EE8F7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SouvenirApi.Infrastructure", "Infrastructure\SouvenirApi.Infrastructure\SouvenirApi.Infrastructure.csproj", "{C817ADFC-4A0D-49C6-825B-09596C1EE8F7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Domain", "Core\SouvenirApi.Domain\SouvenirApi.Domain.csproj", "{B170D8C2-F63B-4981-9C50-2E1FD175F6BD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SouvenirApi.Domain", "Core\SouvenirApi.Domain\SouvenirApi.Domain.csproj", "{B170D8C2-F63B-4981-9C50-2E1FD175F6BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistence", "Infrastructure\Persistence\Persistence.csproj", "{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Persistence", "Infrastructure\Persistence\Persistence.csproj", "{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Api", "Presentation\SouvenirApi.Api\SouvenirApi.Api.csproj", "{7D914833-B1F7-4235-967C-EB0754E22EC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SouvenirApi.Api", "Presentation\SouvenirApi.Api\SouvenirApi.Api.csproj", "{7D914833-B1F7-4235-967C-EB0754E22EC5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SouvenirApi.Mapper", "SouvenirApi.Mapper\SouvenirApi.Mapper.csproj", "{B1E3E541-FCE9-484E-8610-A877D8F8C1D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{7D914833-B1F7-4235-967C-EB0754E22EC5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D914833-B1F7-4235-967C-EB0754E22EC5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D914833-B1F7-4235-967C-EB0754E22EC5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B1E3E541-FCE9-484E-8610-A877D8F8C1D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B1E3E541-FCE9-484E-8610-A877D8F8C1D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B1E3E541-FCE9-484E-8610-A877D8F8C1D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B1E3E541-FCE9-484E-8610-A877D8F8C1D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -55,6 +61,7 @@ Global
 		{B170D8C2-F63B-4981-9C50-2E1FD175F6BD} = {FD2EEAE9-C9EC-401C-A294-1F42A2445A2D}
 		{6B9B17C5-B91C-4B8F-B07C-8D9EAADB4187} = {27D8FD90-81FB-439B-B1DB-A298923451D3}
 		{7D914833-B1F7-4235-967C-EB0754E22EC5} = {8EAA5CA4-1512-47F3-9B2F-9E7FB28E80D2}
+		{B1E3E541-FCE9-484E-8610-A877D8F8C1D9} = {FD2EEAE9-C9EC-401C-A294-1F42A2445A2D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3A51FD9-9D6B-45E8-999A-C97FA2AF6B91}
