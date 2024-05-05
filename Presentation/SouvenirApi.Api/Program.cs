@@ -1,6 +1,7 @@
 using Persistence;
 using SouvenirApi.Application;
 using SouvenirApi.Application.Exceptions;
+using SouvenirApi.Infrastructure;
 using SouvenirApi.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -21,8 +22,13 @@ builder.Configuration
 
 //db configurationlarýný yazdýðýmýz yer
 builder.Services.AddPersistence(builder.Configuration);
+
+//JWT için yazdýðýmýz servis
+builder.Services.AddInfrastructure(builder.Configuration);
+
 //application'ý burada çaðýrýyoruz.Çünkü productController'da MediatR ile çalýþabilmek için.
 builder.Services.AddAplication();
+
 //automap için service eklendi
 builder.Services.AddCustomMapper();
 
