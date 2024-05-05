@@ -1,6 +1,9 @@
 ﻿using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SouvenirApi.Application.Features.Products.Command.CreateProduct;
+using SouvenirApi.Application.Features.Products.Command.DeleteProduct;
+using SouvenirApi.Application.Features.Products.Command.UpdateProduct;
 using SouvenirApi.Application.Features.Products.Queries.GetAllProducts;
 
 namespace SouvenirApi.Api.Controllers
@@ -20,6 +23,27 @@ namespace SouvenirApi.Api.Controllers
         {
             var response = await _mediator.Send(new GetAllProductsQueryRequest());
             return Ok(response);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProduct(CreateProductCommandRequest request)
+        {
+            await _mediator.Send(request);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateProduct(UpdateProductCommandRequest request)
+        {
+            await _mediator.Send(request);
+            return Ok();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> DeleteProduct(DeleteProductCommandRequest request)
+        {
+            await _mediator.Send(request);
+            return Ok();
         }
     }
 }
