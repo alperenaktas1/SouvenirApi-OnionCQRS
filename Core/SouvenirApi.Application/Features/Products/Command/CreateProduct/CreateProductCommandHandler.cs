@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using SouvenirApi.Application.Features.Products.Rules;
 using SouvenirApi.Application.Interface.UnitOfWorks;
 using SouvenirApi.Domain.Entities;
 using System;
@@ -12,13 +13,19 @@ namespace SouvenirApi.Application.Features.Products.Command.CreateProduct
     public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest,Unit>
     {
         private readonly IUnitOfWork _unitOfWork;
+        private readonly ProductRules productRules;
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork)
+        public CreateProductCommandHandler(IUnitOfWork unitOfWork,ProductRules productRules)
         {
             _unitOfWork = unitOfWork;
+            this.productRules = productRules;
         }
         public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
+            IList<Product> products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync();
+
+            await productRules.ProductTitleMustNotBeSame(products, request.Title);
+
             Product product = new(request.Title, request.Description, request.BrandId, request.Price, request.Discount);
             await _unitOfWork.GetWriteRepository<Product>().AddAsync(product);
             if (await _unitOfWork.SaveAsync() > 0)

@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Globalization;
 using MediatR;
 using SouvenirApi.Application.Beheviors;
+using SouvenirApi.Application.Features.Products.Rules;
 
 namespace SouvenirApi.Application
 {
@@ -21,13 +22,24 @@ namespace SouvenirApi.Application
             var assembly = Assembly.GetExecutingAssembly();
 
             service.AddTransient<ExceptionMiddleware>();
-
+            service.AddTransient<ProductRules>();
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assembly));
 
             service.AddValidatorsFromAssembly(assembly);
             ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("tr");
 
             service.AddTransient(typeof(IPipelineBehavior<,>), typeof(FluentValidationBehevior<,>));
+        }
+
+        private static IServiceCollection AddRulesFromAssemblyContaining(this IServiceCollection services,Assembly assembly,Type type)
+        {
+            var types = assembly.GetTypes().Where(t => t.IsSubclassOf(type) && type != t).ToList();
+
+            foreach (var item in types)
+            {
+                services.AddTransient(item);
+            }
+            return services;
         }
     }
 }
