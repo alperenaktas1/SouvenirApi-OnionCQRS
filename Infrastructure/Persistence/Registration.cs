@@ -6,6 +6,7 @@ using Persistence.Repositories;
 using Persistence.UnitOfWorks;
 using SouvenirApi.Application.Interface.Repositories;
 using SouvenirApi.Application.Interface.UnitOfWorks;
+using SouvenirApi.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +28,20 @@ namespace Persistence
             services.AddScoped(typeof(IWriteRepository<>), typeof(WriteRepository<>));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
+
+            //IdentityDbContext kullanıldığında kullanıması gerek servis
+            services.AddIdentityCore<User>(opt => 
+            {
+                opt.Password.RequireNonAlphanumeric = false;
+                opt.Password.RequiredLength= 2;
+                opt.Password.RequireLowercase= false;
+                opt.Password.RequireUppercase= false;
+                opt.Password.RequireDigit = false;
+                opt.SignIn.RequireConfirmedEmail= false;
+            })
+                .AddRoles<Role>()
+                .AddEntityFrameworkStores<SouvenirDbContext>();
+
         }
     }
 }
