@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SouvenirApi.Application.Exceptions;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,8 @@ namespace SouvenirApi.Application
         public static void AddAplication(this IServiceCollection service)
         {
             var assembly = Assembly.GetExecutingAssembly();
+
+            service.AddTransient<ExceptionMiddleware>();
 
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assembly));
         }

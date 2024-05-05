@@ -1,5 +1,6 @@
 using Persistence;
 using SouvenirApi.Application;
+using SouvenirApi.Application.Exceptions;
 using SouvenirApi.Mapper;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -34,7 +35,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
+app.ConfigureExceptionHandlingMiddleware();
 app.UseAuthorization();
 
 app.MapControllers();
