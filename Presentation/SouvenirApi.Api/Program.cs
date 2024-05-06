@@ -1,3 +1,4 @@
+using Microsoft.OpenApi.Models;
 using Persistence;
 using SouvenirApi.Application;
 using SouvenirApi.Application.Exceptions;
@@ -31,6 +32,34 @@ builder.Services.AddAplication();
 
 //automap için service eklendi
 builder.Services.AddCustomMapper();
+
+builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo { Title = "Souvenir API", Version = "v1", Description = "Souvenir APIswagger client." });
+    c.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme()
+    {
+        Name = "Authorization",
+        Type = SecuritySchemeType.ApiKey,
+        Scheme = "Bearer",
+        BearerFormat = "JWT",
+        In = ParameterLocation.Header,
+        Description = "'Bearer' yazýp boþluk býraktýktan sonra Token'a Girebilirsiniz \r\n\r\n Örneðin: \"Bearer aaaaaaaaaaaaaa\""
+    });
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id="Bearer"
+                }
+            },
+            Array.Empty<string>()
+        }
+    });
+});
 
 
 var app = builder.Build();

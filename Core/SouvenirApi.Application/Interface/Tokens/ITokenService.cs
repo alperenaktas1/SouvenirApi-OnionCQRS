@@ -13,6 +13,6 @@ namespace SouvenirApi.Application.Interface.Tokens
     {
         Task<JwtSecurityToken> CreateToken(User user, IList<string> roles);
         string GenearteRefreshToken();
-        ClaimsPrincipal? GetPrincipalFromExpiredToken();
+        ClaimsPrincipal? GetPrincipalFromExpiredToken(string? token);
     }
 }
