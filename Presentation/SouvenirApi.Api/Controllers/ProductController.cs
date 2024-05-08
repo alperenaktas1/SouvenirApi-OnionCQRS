@@ -1,4 +1,5 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SouvenirApi.Application.Features.Products.Command.CreateProduct;
@@ -19,6 +20,7 @@ namespace SouvenirApi.Api.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllProducts()
         {
             var response = await _mediator.Send(new GetAllProductsQueryRequest());
