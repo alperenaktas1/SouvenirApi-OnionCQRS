@@ -27,6 +27,7 @@ namespace SouvenirApi.Application
             service.AddTransient<ExceptionMiddleware>();
             //service.AddTransient<ProductRules>();
 
+            //unutulan ve sorun çıkartan servis bu. Register için sıkıntı çıkarıyordu.
             service.AddRulesFromAssemblyContaining(assembly, typeof(BaseRules));
             
             service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assembly));

@@ -18,6 +18,13 @@ namespace SouvenirApi.Application.Features.Auth.Rules
                 throw new UserAlreadyExistException();
             }
             return Task.CompletedTask;
+
+        }
+
+        public Task EmailOrPasswordShouldNotBInvalid(User? user,bool checkPassword)
+        {
+            if (user is null || !checkPassword ) throw new EmailOrPasswordShouldNotBInvalidException();
+            return Task.CompletedTask;
         }
     }
 }
