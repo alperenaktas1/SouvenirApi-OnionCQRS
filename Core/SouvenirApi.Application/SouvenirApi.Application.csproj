@@ -20,4 +20,8 @@
     <ProjectReference Include="..\SouvenirApi.Domain\SouvenirApi.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Features\Auth\Queries\" />
+  </ItemGroup>
+
 </Project>

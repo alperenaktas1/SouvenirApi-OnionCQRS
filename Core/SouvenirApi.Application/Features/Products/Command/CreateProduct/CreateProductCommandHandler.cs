@@ -1,5 +1,8 @@
 ﻿using MediatR;
+using Microsoft.AspNetCore.Http;
+using SouvenirApi.Application.Bases;
 using SouvenirApi.Application.Features.Products.Rules;
+using SouvenirApi.Application.Interface.AutoMapper;
 using SouvenirApi.Application.Interface.UnitOfWorks;
 using SouvenirApi.Domain.Entities;
 using System;
@@ -10,34 +13,32 @@ using System.Threading.Tasks;
 
 namespace SouvenirApi.Application.Features.Products.Command.CreateProduct
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommandRequest,Unit>
+    public class CreateProductCommandHandler : BaseHandler, IRequestHandler<CreateProductCommandRequest,Unit>
     {
-        private readonly IUnitOfWork _unitOfWork;
         private readonly ProductRules productRules;
 
-        public CreateProductCommandHandler(IUnitOfWork unitOfWork,ProductRules productRules)
+        public CreateProductCommandHandler(ProductRules productRules, IMappersApp mappersApp, IUnitOfWork unitOfWork, IHttpContextAccessor httpContextAccessor):base(mappersApp, unitOfWork, httpContextAccessor)
         {
-            _unitOfWork = unitOfWork;
             this.productRules = productRules;
         }
         public async Task<Unit> Handle(CreateProductCommandRequest request, CancellationToken cancellationToken)
         {
-            IList<Product> products = await _unitOfWork.GetReadRepository<Product>().GetAllAsync();
+            IList<Product> products = await unitOfWork.GetReadRepository<Product>().GetAllAsync();
 
             await productRules.ProductTitleMustNotBeSame(products, request.Title);
 
             Product product = new(request.Title, request.Description, request.BrandId, request.Price, request.Discount);
-            await _unitOfWork.GetWriteRepository<Product>().AddAsync(product);
-            if (await _unitOfWork.SaveAsync() > 0)
+            await unitOfWork.GetWriteRepository<Product>().AddAsync(product);
+            if (await unitOfWork.SaveAsync() > 0)
             {
                 foreach (var categoryId in request.CategoryIds)
                 {
-                    await _unitOfWork.GetWriteRepository<ProductCategory>().AddAsync(new()
+                    await unitOfWork.GetWriteRepository<ProductCategory>().AddAsync(new()
                     {
                         ProductId = product.Id,
                         CategoryId = categoryId
                     });
-                    await _unitOfWork.SaveAsync();
+                    await unitOfWork.SaveAsync();
                 }
             }
 
