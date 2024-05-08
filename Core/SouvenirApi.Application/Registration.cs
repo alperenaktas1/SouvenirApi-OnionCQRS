@@ -12,6 +12,9 @@ using System.Globalization;
 using MediatR;
 using SouvenirApi.Application.Beheviors;
 using SouvenirApi.Application.Features.Products.Rules;
+using Microsoft.AspNetCore.Http;
+using SouvenirApi.Application.Features.Auth.Command.Register;
+using SouvenirApi.Application.Bases;
 
 namespace SouvenirApi.Application
 {
@@ -22,9 +25,12 @@ namespace SouvenirApi.Application
             var assembly = Assembly.GetExecutingAssembly();
 
             service.AddTransient<ExceptionMiddleware>();
-            service.AddTransient<ProductRules>();
-            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assembly));
+            //service.AddTransient<ProductRules>();
 
+            service.AddRulesFromAssemblyContaining(assembly, typeof(BaseRules));
+            
+            service.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(assembly));
+            
             service.AddValidatorsFromAssembly(assembly);
             ValidatorOptions.Global.LanguageManager.Culture = new CultureInfo("tr");
 
