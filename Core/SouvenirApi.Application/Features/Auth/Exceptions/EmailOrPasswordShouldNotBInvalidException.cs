@@ -8,5 +8,7 @@ namespace SouvenirApi.Application.Features.Auth.Exceptions
         {
 
         }
+
+        
     }
 }
