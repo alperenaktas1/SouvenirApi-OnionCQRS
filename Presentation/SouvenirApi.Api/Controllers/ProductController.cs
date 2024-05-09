@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SouvenirApi.Application.Features.Brands.Commands.CreateBrand;
+using SouvenirApi.Application.Features.Brands.Queries.GetAllBrands;
 using SouvenirApi.Application.Features.Products.Command.CreateProduct;
 using SouvenirApi.Application.Features.Products.Command.DeleteProduct;
 using SouvenirApi.Application.Features.Products.Command.UpdateProduct;
@@ -46,6 +48,21 @@ namespace SouvenirApi.Api.Controllers
         {
             await _mediator.Send(request);
             return Ok();
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBrand(CreateBrandCommandRequest request)
+        {
+            await _mediator.Send(request);
+            return Ok();
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllBrands()
+        {
+            var response = await _mediator.Send(new GetAllBrandsQueryRequest());
+            return Ok(response);
         }
     }
 }
