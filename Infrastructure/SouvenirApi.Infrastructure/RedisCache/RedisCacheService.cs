@@ -29,7 +29,7 @@ namespace SouvenirApi.Infrastructure.RedisCache
             var value = await database.StringGetAsync(key);
             if (value.HasValue)
             {
-                return JsonConvert.DeserializeObject<T>(Value);
+                return JsonConvert.DeserializeObject<T>(value);
             }
 
             return default;
